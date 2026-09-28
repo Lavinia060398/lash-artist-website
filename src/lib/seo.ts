@@ -81,7 +81,7 @@ export function localBusinessJsonLd() {
         "@type": "Offer",
         price: s.price,
         priceCurrency: "RON",
-        itemOffered: { "@type": "Service", name: s.name, description: s.description },
+        itemOffered: { "@type": "Service", name: s.name, description: s.description?.replace(/\|/g, " ") },
       })),
     },
   };

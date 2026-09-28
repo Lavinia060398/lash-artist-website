@@ -1,3 +1,4 @@
+/** In `description`, `|` marks the line break used on phones (as in the mobile design). */
 export type Service = {
   name: string;
   variants?: string;
@@ -10,29 +11,29 @@ export const services: Service[] = [
   {
     name: "Natural volume",
     variants: "1D/ 2D/ 3D",
-    description: "Efect elegant și natural pentru o privire fresh și definită",
+    description: "Efect elegant și natural pentru o|privire fresh și definită",
     price: 250,
   },
   {
     name: "Soft volume",
     variants: "4D/ 5D/ 6D",
-    description: "Mai multă intensitate, păstrând un aspect sofisticat.",
+    description: "Mai multă intensitate, păstrând un|aspect sofisticat.",
     price: 300,
   },
   {
     name: "Mega volume",
     variants: "7D/ 8D/ 9D/ 10D",
-    description: "Volum intens pentru o privire statement",
+    description: "Volum intens pentru o|privire statement",
     price: 350,
   },
   {
     name: "Laminare gene",
-    description: "Gene perfect aliniate, curbate și definite",
+    description: "Gene perfect aliniate, curbate|și definite",
     price: 200,
   },
   {
     name: "Laminare sprâncene",
-    description: "Sprâncene disciplinate cu aspect îngrijit și natural",
+    description: "Sprâncene disciplinate cu aspect|îngrijit și natural",
     price: 200,
   },
   {
