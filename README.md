@@ -34,23 +34,24 @@ npm run build    # verificare build de producție
 
 Necesită Node.js 20.9 sau mai nou.
 
-## Publicare (GitHub + Vercel)
+## Publicare (GitHub + Netlify)
 
-1. Urcă proiectul într-un repository GitHub.
-2. Pe [vercel.com](https://vercel.com) → **Add New… → Project** → importă repository-ul. Vercel detectează Next.js automat; nu e nevoie de setări.
-3. În **Settings → Environment Variables** adaugă:
-   - `NEXT_PUBLIC_SITE_URL` = `https://domeniul-tau.ro` (fără `/` la final) — folosit pentru canonical, sitemap și Open Graph
-   - opțional `NEXT_PUBLIC_GSC_VERIFICATION` = codul de verificare Google Search Console
-4. **Deploy.** Fiecare `git push` pe ramura principală republică site-ul automat.
+1. Codul e în GitHub: `Lavinia060398/lash-artist-website`.
+2. Pe [app.netlify.com](https://app.netlify.com) → **Add new project → Import an existing project → GitHub** → alege `lash-artist-website`.
+3. Setările se completează singure din `netlify.toml` (build `npm run build`, Node 22). Apasă **Deploy**.
+4. În **Project configuration → Environment variables** adaugă:
+   - `NEXT_PUBLIC_SITE_URL` = `https://domeniul-tau.ro` (fără `/` la final)
+   - opțional `NEXT_PUBLIC_GSC_VERIFICATION` = codul Google Search Console
+   apoi **Deploys → Trigger deploy**.
+5. Fiecare `git push` pe `main` republică site-ul automat. Deploy preview-urile nu sunt indexate de Google (`robots.txt` le blochează).
 
 ## Conectarea domeniului (.ro)
 
-1. Vercel → proiect → **Settings → Domains** → adaugă `domeniul-tau.ro` și `www.domeniul-tau.ro` (setează unul să redirecționeze către celălalt).
-2. La registrarul domeniului (ex. ROTLD / furnizorul tău), în zona DNS:
-   - înregistrare **A** pentru `@` → IP-ul afișat de Vercel (de obicei `76.76.21.21`)
-   - înregistrare **CNAME** pentru `www` → valoarea afișată de Vercel (ex. `cname.vercel-dns.com`)
-   - sau, alternativ, schimbă nameserverele către cele ale Vercel.
-3. Așteaptă propagarea DNS (de la câteva minute la 48 h). Certificatul HTTPS se emite automat.
+1. Netlify → proiect → **Domain management → Add a domain** → `domeniul-tau.ro` (Netlify adaugă automat și `www`).
+2. La registrarul domeniului, fie:
+   - schimbi **nameserverele** cu cele 4 afișate de Netlify (varianta cea mai simplă), fie
+   - păstrezi DNS-ul actual și adaugi: **A** pentru `@` → `75.2.60.5`, **CNAME** pentru `www` → `numele-proiectului.netlify.app` (verifică valorile exacte afișate de Netlify).
+3. După propagare (minute – 48 h), Netlify emite automat certificatul HTTPS.
 4. Actualizează `NEXT_PUBLIC_SITE_URL` cu domeniul final și redeploy.
 
 ## Google Search Console
@@ -59,4 +60,4 @@ Necesită Node.js 20.9 sau mai nou.
 2. Verifică prin înregistrare DNS TXT sau prin `NEXT_PUBLIC_GSC_VERIFICATION`.
 3. Trimite sitemap-ul: `https://domeniul-tau.ro/sitemap.xml`.
 
-Paginile de preview Vercel (`*.vercel.app`) au automat `robots.txt` cu `Disallow`, ca să nu fie indexate; doar producția e indexabilă.
+Deploy preview-urile (Netlify / Vercel) au automat `robots.txt` cu `Disallow`, ca să nu fie indexate; doar producția e indexabilă.

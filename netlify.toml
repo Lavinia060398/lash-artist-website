@@ -1,0 +1,7 @@
+# Netlify detectează automat Next.js (Next.js Runtime / OpenNext): rutele, next/image și caching-ul funcționează fără alte setări.
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
