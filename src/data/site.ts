@@ -25,7 +25,7 @@ export const siteConfig = {
     street: "Str. Ștefan cel Mare, nr. 56A",
     building: "Centrul Minerva",
     region: "Timiș",
-    postalCode: "",
+    postalCode: "300109",
     country: "RO",
     mapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Str.+%C8%98tefan+cel+Mare+56A+Centrul+Minerva+Timi%C8%99oara",

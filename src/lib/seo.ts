@@ -60,6 +60,7 @@ export function localBusinessJsonLd() {
       streetAddress: `${siteConfig.address.street}, ${siteConfig.address.building}`,
       addressLocality: siteConfig.address.city,
       addressRegion: siteConfig.address.region,
+      postalCode: siteConfig.address.postalCode,
       addressCountry: siteConfig.address.country,
     },
     hasMap: siteConfig.address.mapsUrl,
