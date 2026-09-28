@@ -19,25 +19,26 @@ export const aftercareWarning =
 
 export type PolicyIcon = "calendar" | "banknote" | "hourglass" | "clock";
 
+/** `|` marks where the line breaks on wide desktops (≥1280px), as set in the design; smaller screens wrap naturally. */
 export const cancellationPolicy: { icon: PolicyIcon; title: string; text: string }[] = [
   {
     icon: "calendar",
     title: "Program afectat",
-    text: "Îmi organizez întreaga zi în funcție de programări. O anulare din scurt îmi dezechilibrează programul.",
+    text: "Îmi organizez întreaga zi în|funcție de programări.|O anulare din scurt îmi|dezechilibrează programul.",
   },
   {
     icon: "banknote",
     title: "Pierdere financiară",
-    text: "Fiecare programare înseamnă timp, materiale și implicare. Anulările din scurt afectează direct munca mea.",
+    text: "Fiecare programare înseamnă|timp, materiale și implicare.|Anulările din scurt afectează|direct munca mea.",
   },
   {
     icon: "hourglass",
     title: "Alte cliente așteaptă",
-    text: "Sunt cliente pe lista de așteptare care își doresc un loc. Anulările din ultimul moment le țin pe loc.",
+    text: "Sunt cliente pe lista de|așteptare care își doresc|un loc. Anulările din ultimul|moment le țin pe loc.",
   },
   {
     icon: "clock",
     title: "Timp pierdut",
-    text: "Locul tău rămâne liber și nu voi mai putea programa o altă clientă în acel interval de timp.",
+    text: "Locul tău rămâne liber și nu voi|mai putea programa o altă|clientă în acel interval de timp.",
   },
 ];

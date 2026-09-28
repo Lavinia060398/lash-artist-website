@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { cancellationPolicy } from "@/data/care";
 import { BookingButton } from "@/components/booking/BookingButton";
 import { Section } from "@/components/ui/Container";
@@ -5,11 +6,10 @@ import { Icon } from "@/components/ui/Icon";
 
 export function TimePolicy() {
   return (
-    <Section id="politica-programari" labelledBy="politica-title">
+    <Section id="politica-programari" labelledBy="politica-title" className="lg:pb-[84px] lg:pt-[75px]">
       <div className="flex flex-col items-center gap-[20px] text-center md:gap-10">
         <h2 id="politica-title" className="h2">
-          Respectul
-          <br />
+          <span className="block lg:mb-3">Respectul</span>
           pentru <span className="script">timp</span>
         </h2>
         <div className="flex flex-col items-center gap-[10px] text-body-dark">
@@ -26,7 +26,7 @@ export function TimePolicy() {
           <li
             key={item.title}
             className={[
-              "flex flex-col gap-6 border-line px-3 py-6 lg:h-[300px] lg:gap-[47px]",
+              "flex flex-col gap-6 border-line px-3 py-6 lg:min-h-[300px] lg:gap-[47px]",
               "border-b",
               i % 2 === 0 ? "sm:border-r" : "",
               "lg:border-b-0",
@@ -36,7 +36,19 @@ export function TimePolicy() {
             <Icon name={item.icon} size={52} className="text-body-dark" />
             <div className="flex flex-col gap-[10px] md:gap-[15px]">
               <h3 className="h3 uppercase">{item.title}</h3>
-              <p className="text-body-dark">{item.text}</p>
+              <p className="text-body-dark">
+                {item.text.split("|").map((line, j) => (
+                  <Fragment key={j}>
+                    {j > 0 ? (
+                      <>
+                        {" "}
+                        <br className="hidden xl:inline" />
+                      </>
+                    ) : null}
+                    {line}
+                  </Fragment>
+                ))}
+              </p>
             </div>
           </li>
         ))}
