@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { bookingMessages, phoneHref, siteConfig, whatsappHref } from "@/data/site";
+import { bookingMessages, phoneHref, whatsappHref } from "@/data/site";
 import { buttonClasses } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { BOOKING_EVENT, type BookingDetail } from "./BookingButton";
@@ -65,13 +65,6 @@ export function BookingDialog() {
             "Sună-mă sau scrie-mi pe WhatsApp și stabilim împreună ora potrivită."
           )}
         </p>
-
-        <a
-          href={phoneHref}
-          className="font-sans text-[28px] font-semibold leading-[1.3] tracking-[-0.01em] text-accent hover:underline md:text-[32px]"
-        >
-          {siteConfig.phone.display.replace(/(\d{4})(\d{3})(\d{3})/, "$1 $2 $3")}
-        </a>
 
         <div className="flex w-full flex-col gap-3">
           <a href={phoneHref} className={buttonClasses("primary", "w-full gap-2")}>

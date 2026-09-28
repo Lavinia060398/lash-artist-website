@@ -197,12 +197,12 @@ export const courses: Course[] = [
     seo: {
       title: "Curs laminare gene și sprâncene în Timișoara",
       description:
-        "Curs de 2 zile de laminare a genelor și sprâncenelor în Timișoara: laminare clasică și coreeană, practică pe 2 modele umane și diplomă de participare. 1500 RON.",
+        "Curs de o zi de laminare a genelor și sprâncenelor în Timișoara: laminare clasică și coreeană, practică pe 2 modele umane și diplomă de participare. 1500 RON.",
     },
     schedule: [
       {
-        label: "Ziua 1",
-        subtitle: "Teorie + demonstrație practică",
+        label: "1 zi",
+        subtitle: "Teorie, demonstrație și practică",
         time: "10:00 – 18:00",
         items: [
           "Introducere în laminarea genelor și sprâncenelor",
@@ -210,39 +210,18 @@ export const courses: Course[] = [
           "Laminarea clasică vs. laminarea coreeană",
           "Produse, instrumente și materiale",
           "Alegerea corectă a bigudiurilor",
-          "Pregătirea genelor și sprâncenelor",
           "Igienă, sanitizare și reguli de siguranță",
-          "Contraindicații și precauții",
-          "Organizarea spațiului de lucru",
+          "Cele mai frecvente greșeli și cum pot fi prevenite",
+          "Contraindicațiile tratamentului",
           "Alegerea tehnicii în funcție de fir și rezultatul dorit",
-          { heading: "Demonstrație" },
-          "Laminare clasică a genelor → Laminare coreeană a genelor → Laminare și stilizare a sprâncenelor",
-        ],
-      },
-      {
-        label: "Ziua 2",
-        subtitle: "Practică pe 2 modele umane",
-        time: "10:00 – 18:00",
-        items: [
-          "A doua zi este dedicată exclusiv aplicării cunoștințelor dobândite. Vei lucra pe două modele umane, sub îndrumarea trainerului.",
-          "Vei exersa:",
-          "Analiza genelor și sprâncenelor",
-          "Pregătirea clientei",
-          "Alegerea tehnicii potrivite",
-          "Laminarea clasică",
-          "Laminarea coreeană",
-          "Alegerea și poziționarea corectă a bigudiurilor",
-          "Aplicarea produselor",
-          "Respectarea etapelor procedurii",
-          "Finisarea rezultatului",
-          "Recomandările de îngrijire post-procedură",
+          "Lucrul pe două modele umane, sub îndrumarea trainerului",
           { note: "Pe parcursul practicii vei primi feedback individual, corectarea tehnicii și recomandări personalizate." },
         ],
       },
     ],
     benefits: [
       {
-        title: "2 zile de formare intensivă",
+        title: "1 zi de formare intensivă",
         text: "Îmbini partea teoretică cu demonstrația și practica, pentru a înțelege corect fiecare etapă a procedurii.",
       },
       {
@@ -267,7 +246,7 @@ export const courses: Course[] = [
       },
     ],
     diploma:
-      "La finalul cursului vei primi o diplomă de participare care atestă parcurgerea celor 2 zile ale cursului.",
+      "La finalul cursului vei primi o diplomă de participare care atestă parcurgerea cursului de laminare a genelor și sprâncenelor.",
     curriculum: {
       heading: { serif: "Ce vei", script: "învăța" },
       subtitle: "Două tehnici. O bază profesională mai complexă.",
@@ -324,11 +303,11 @@ export const courses: Course[] = [
     },
     pricing: {
       price: 1500,
-      duration: "2 zile de formare intensă",
+      duration: "1 zi de formare intensă",
       formatTags: ["Teorie + demonstrație practică", "Practică pe model"],
       deposit: 500,
     },
-    durationISO: "P2D",
+    durationISO: "P1D",
   },
   {
     slug: "curs-perfectionare-extensii-gene",
@@ -367,7 +346,7 @@ export const courses: Course[] = [
       columns: [
         [
           {
-            title: "Tehnica One by One",
+            title: "Tehnica One by One - Evantaie în mână și evantaie pe bandă",
             items: [
               "Îți vei rafina tehnica de aplicare One by One, cu accent pe precizie, izolare și obținerea unui rezultat curat și natural.",
             ],

@@ -27,8 +27,7 @@ export function TimePolicy() {
             key={item.title}
             className={[
               "flex flex-col gap-6 border-line px-3 py-6 lg:h-[300px] lg:gap-[47px]",
-              i < 3 ? "border-b" : "",
-              i < 2 ? "sm:border-b" : "sm:border-b-0",
+              "border-b",
               i % 2 === 0 ? "sm:border-r" : "",
               "lg:border-b-0",
               i < 3 ? "lg:border-r" : "lg:border-r-0",
