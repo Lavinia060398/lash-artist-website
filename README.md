@@ -40,14 +40,14 @@ Necesită Node.js 20.9 sau mai nou.
 2. Pe [app.netlify.com](https://app.netlify.com) → **Add new project → Import an existing project → GitHub** → alege `lash-artist-website`.
 3. Setările se completează singure din `netlify.toml` (build `npm run build`, Node 22). Apasă **Deploy**.
 4. În **Project configuration → Environment variables** adaugă:
-   - `NEXT_PUBLIC_SITE_URL` = `https://domeniul-tau.ro` (fără `/` la final)
+   - `NEXT_PUBLIC_SITE_URL` = `https://laviniaeyelashes.ro` (fără `/` la final)
    - opțional `NEXT_PUBLIC_GSC_VERIFICATION` = codul Google Search Console
    apoi **Deploys → Trigger deploy**.
 5. Fiecare `git push` pe `main` republică site-ul automat. Deploy preview-urile nu sunt indexate de Google (`robots.txt` le blochează).
 
 ## Conectarea domeniului (.ro)
 
-1. Netlify → proiect → **Domain management → Add a domain** → `domeniul-tau.ro` (Netlify adaugă automat și `www`).
+1. Netlify → proiect → **Domain management → Add a domain** → `laviniaeyelashes.ro` (Netlify adaugă automat și `www`).
 2. La registrarul domeniului, fie:
    - schimbi **nameserverele** cu cele 4 afișate de Netlify (varianta cea mai simplă), fie
    - păstrezi DNS-ul actual și adaugi: **A** pentru `@` → `75.2.60.5`, **CNAME** pentru `www` → `numele-proiectului.netlify.app` (verifică valorile exacte afișate de Netlify).
@@ -56,8 +56,8 @@ Necesită Node.js 20.9 sau mai nou.
 
 ## Google Search Console
 
-1. Adaugă proprietatea `https://domeniul-tau.ro` în Search Console.
+1. Adaugă proprietatea `https://laviniaeyelashes.ro` în Search Console.
 2. Verifică prin înregistrare DNS TXT sau prin `NEXT_PUBLIC_GSC_VERIFICATION`.
-3. Trimite sitemap-ul: `https://domeniul-tau.ro/sitemap.xml`.
+3. Trimite sitemap-ul: `https://laviniaeyelashes.ro/sitemap.xml`.
 
 Deploy preview-urile (Netlify / Vercel) au automat `robots.txt` cu `Disallow`, ca să nu fie indexate; doar producția e indexabilă.

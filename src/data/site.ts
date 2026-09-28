@@ -8,7 +8,7 @@ export const siteConfig = {
   shortName: "Eyelash by Lavinia",
   owner: "Lavinia",
   /** Production domain. Set NEXT_PUBLIC_SITE_URL in Vercel once the .ro domain is connected. */
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://eyelashbylavinia.ro").replace(/\/$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://laviniaeyelashes.ro").replace(/\/$/, ""),
   locale: "ro_RO",
   description:
     "Extensii de gene, laminare gene și sprâncene și cursuri pentru lash artiști în Timișoara. Trainer certificat cu 10 ani de experiență.",
