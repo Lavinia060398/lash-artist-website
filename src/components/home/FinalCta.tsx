@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/Container";
 
 export function FinalCta() {
   return (
-    <section aria-labelledby="cta-title" className="pb-[30px] pt-10 md:pb-[100px] md:pt-[50px]">
+    <section aria-labelledby="cta-title" className="pb-20 pt-10 md:pb-[100px] md:pt-[50px]">
       <Container className="!px-0 md:!px-8">
         {/* Image and text share one grid cell: the illustration is never cropped (width-fit at every size). */}
         <div className="grid place-items-center">

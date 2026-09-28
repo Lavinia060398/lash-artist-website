@@ -34,15 +34,15 @@ export function About() {
             </p>
           </div>
         </div>
-        <div className="relative mt-[10px] aspect-[358/427] w-full max-w-[454px] overflow-hidden md:mt-0 md:aspect-[454/595]">
-          <Image
-            src="/images/home/lavinia-portret.jpg"
-            alt="Lavinia, trainer certificat în extensii de gene, în costum maro"
-            fill
-            sizes="(min-width: 768px) 454px, 100vw"
-            className="object-cover object-top"
-          />
-        </div>
+        {/* Shown whole on every device (no cropping): the box follows the photo's own proportions. */}
+        <Image
+          src="/images/home/lavinia-portret.jpg"
+          alt="Lavinia, trainer certificat în extensii de gene, în costum maro"
+          width={1135}
+          height={1489}
+          sizes="(min-width: 768px) 454px, calc(100vw - 32px)"
+          className="mt-[10px] h-auto w-full max-w-[454px] md:mt-0"
+        />
       </div>
     </Section>
   );
