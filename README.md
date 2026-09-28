@@ -9,7 +9,7 @@ Site de prezentare pentru Eyelash by Lavinia (extensii de gene, laminare, cursur
 | URL | Pagina |
 | --- | --- |
 | `/` | Acasă (despre, servicii, galerie, politica programărilor, îngrijire, cursuri, contact) |
-| `/portofoliu` | Portofoliu (22 de lucrări) |
+| `/portofoliu` | Portofoliu (23 de lucrări) |
 | `/cursuri/curs-de-baza-extensii-gene` | Curs de bază extensii gene |
 | `/cursuri/curs-laminare-gene-sprancene` | Curs laminare gene & sprâncene |
 | `/cursuri/curs-perfectionare-extensii-gene` | Curs de perfecționare 1:1 |

@@ -209,3 +209,45 @@
     transform: translateY(8px);
   }
 }
+
+/* Portfolio lightbox */
+.lightbox::backdrop {
+  background: rgb(22 17 15 / 0.96);
+}
+.lightbox[open] {
+  animation: lightbox-in 220ms ease-out;
+}
+@keyframes lightbox-in {
+  from {
+    opacity: 0;
+  }
+}
+.lightbox-btn {
+  align-items: center;
+  justify-content: center;
+  color: #fcf3ea;
+  transition: opacity 200ms ease-out, background-color 200ms ease-out, border-color 200ms ease-out;
+}
+.lightbox-btn:hover {
+  opacity: 0.8;
+}
+.lightbox-arrow {
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgb(252 243 234 / 0.45);
+  background: rgb(22 17 15 / 0.35);
+}
+.lightbox-arrow:hover {
+  opacity: 1;
+  background: rgb(252 243 234 / 0.14);
+  border-color: rgb(252 243 234 / 0.85);
+}
+.lightbox-btn:focus-visible {
+  outline: 2px solid #fcf3ea;
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lightbox[open] {
+    animation: none;
+  }
+}
