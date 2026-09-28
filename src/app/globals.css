@@ -251,3 +251,27 @@
     animation: none;
   }
 }
+
+/* Services price list (home). */
+.service-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "name price" "var var" "desc desc";
+  column-gap: 16px;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .service-item {
+    grid-template-columns: 124px minmax(0, 1fr) minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: "num name var price" "num desc desc price";
+    align-content: space-between;
+    align-items: start;
+    column-gap: 0;
+    row-gap: 8px;
+    min-height: 106px; /* 65px content + 40px padding + 1px border, as in the design */
+  }
+  .service-item > :nth-child(2) {
+    padding-left: 30px; /* gap before the price */
+  }
+}
