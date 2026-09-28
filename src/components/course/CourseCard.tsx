@@ -9,7 +9,7 @@ export function CourseCard({ course, divider = false }: Props) {
   const href = `/cursuri/${course.slug}`;
   return (
     <article
-      className={`flex flex-col gap-6 border-line md:gap-10 ${divider ? "md:border-r-[0.5px] md:pr-[30px] lg:pr-[45px]" : ""}`}
+      className={`flex flex-col gap-6 border-line md:gap-10 md:pr-[30px] lg:pr-[45px] ${divider ? "md:border-r-[0.5px]" : ""}`}
     >
       <div className="relative aspect-[325/289] w-full overflow-hidden">
         <Image
