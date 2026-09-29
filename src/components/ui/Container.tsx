@@ -21,7 +21,7 @@ type SectionProps = Props & { labelledBy?: string };
 /** Vertical rhythm between sections: 80px mobile, 100px desktop (from the design). */
 export function Section({ as: Tag = "section", className = "", children, id, labelledBy }: SectionProps) {
   return (
-    <Tag id={id} aria-labelledby={labelledBy} className={`scroll-mt-6 py-10 md:py-[50px] ${className}`}>
+    <Tag id={id} aria-labelledby={labelledBy} className={`py-10 md:py-[50px] ${className}`}>
       <Container>{children}</Container>
     </Tag>
   );

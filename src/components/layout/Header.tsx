@@ -4,10 +4,11 @@ import { navLinks, siteConfig } from "@/data/site";
 import { BookingButton } from "@/components/booking/BookingButton";
 import { Container } from "@/components/ui/Container";
 import { MobileMenu } from "./MobileMenu";
+import { StickyHeader } from "./StickyHeader";
 
 export function Header() {
   return (
-    <header className="relative z-30 pt-5 md:pt-[37px]">
+    <StickyHeader>
       <a
         href="#continut"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-cream focus:px-4 focus:py-2 focus:text-ink"
@@ -47,6 +48,6 @@ export function Header() {
 
         <MobileMenu />
       </Container>
-    </header>
+    </StickyHeader>
   );
 }
