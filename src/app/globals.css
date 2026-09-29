@@ -120,14 +120,36 @@
   line-height: 0.75;
   margin-top: 4px;
 }
+/* Phone: headline + photo + button must fit on the first screen. On short screens the space above
+ * "Privirea" shrinks first (90px → 30px), then the portrait. 193px = header + 37px + line + 25px + button + air. */
+.hero-stage {
+  --full: calc(100vw * 472 / 390);
+  --ph: max(300px, min(var(--full), calc(100vh - 193px - var(--hero-pt, 90px))));
+}
+@supports (height: 100svh) {
+  .hero-stage {
+    --ph: max(300px, min(var(--full), calc(100svh - 193px - var(--hero-pt, 90px))));
+  }
+}
+@media (max-width: 479.98px) {
+  .hero-top {
+    --hero-pt: clamp(30px, calc(100vh - 193px - 100vw * 472 / 390), 90px);
+    padding-top: var(--hero-pt);
+  }
+  @supports (height: 100svh) {
+    .hero-top {
+      --hero-pt: clamp(30px, calc(100svh - 193px - 100vw * 472 / 390), 90px);
+    }
+  }
+}
 .hero-portrait {
-  left: calc(100vw * 104 / 390 - 16px);
   top: 37px;
-  width: calc(100vw * 348 / 390);
-  aspect-ratio: 348 / 472;
+  height: var(--ph);
+  width: calc(var(--ph) * 348 / 472);
+  left: calc(100vw * 452 / 390 - 16px - var(--ph) * 348 / 472);
 }
 .hero-copy {
-  min-height: calc(37px + 100vw * 472 / 390);
+  min-height: calc(37px + var(--ph));
 }
 
 /* Tablet (480–1023px): same stacked composition as the phone, scaled up. */
@@ -143,6 +165,7 @@
     right: -4vw;
     top: calc(var(--w) * 0.1);
     width: calc(var(--w) * 0.6);
+    height: auto;
     aspect-ratio: 348 / 472;
   }
   .hero-copy {

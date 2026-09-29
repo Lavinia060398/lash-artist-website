@@ -6,8 +6,8 @@ import { Icon } from "@/components/ui/Icon";
 
 export function Hero() {
   return (
-    <section aria-labelledby="hero-title" className="relative mb-10 overflow-hidden pb-[22px] md:mb-[50px] md:pb-10 lg:pb-0">
-      <Container className="relative pt-[90px] md:pt-[60px]">
+    <section aria-labelledby="hero-title" className="relative mb-10 overflow-hidden md:mb-[50px] md:pb-10 lg:pb-0">
+      <Container className="hero-top relative pt-[90px] md:pt-[60px]">
         <div className="hero-stage relative">
           {/* Portrait sits above the giant headline, as in the design. */}
           <div className="hero-portrait pointer-events-none absolute z-10">
@@ -32,12 +32,12 @@ export function Hero() {
           </div>
 
           <div className="relative z-20 lg:mt-5 lg:max-w-[min(435px,48%)]">
-            <hr className="-mx-4 mb-[22px] border-line md:-mx-8 lg:hidden" />
-            <p className="mx-auto text-base leading-[1.5] text-body sm:max-w-[440px] sm:text-center lg:mx-0 lg:max-w-none lg:text-left">
+            <hr className="-mx-4 mb-[25px] border-line sm:mb-[22px] md:-mx-8 lg:hidden" />
+            <p className="mx-auto hidden text-base leading-[1.5] text-body sm:block sm:max-w-[440px] sm:text-center lg:mx-0 lg:max-w-none lg:text-left">
               Tehnica și personalizarea fiecărui set sunt adaptate fizionomiei și stilului individual, pentru un rezultat
               elegant, armonios și impecabil.
             </p>
-            <div className="mt-5 flex justify-center lg:mt-[30px] lg:justify-start">
+            <div className="flex justify-center sm:mt-5 lg:mt-[30px] lg:justify-start">
               <BookingButton>Programează-te</BookingButton>
             </div>
           </div>
