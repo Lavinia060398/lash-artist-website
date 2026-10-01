@@ -339,6 +339,8 @@ export const courses: Course[] = [
         ],
       },
     ],
+    diploma:
+      "La finalul cursului vei primi o diplomă de participare care atestă parcurgerea programului de perfecționare intensivă.",
     curriculum: {
       heading: { serif: "Ce vei", script: "perfecționa" },
       subtitle:

@@ -47,6 +47,18 @@ export function CourseSchedule({ course }: { course: Course }) {
           </article>
         ))}
       </div>
+
+      {/* Courses without a benefits section show the diploma right under the schedule. */}
+      {course.diploma && !course.benefits?.length ? (
+        <div
+          className={`mx-auto mt-[30px] flex flex-col gap-[5px] border border-line p-3 text-center md:mt-10 ${
+            count === 1 ? "md:max-w-[469px]" : "max-w-[744px]"
+          }`}
+        >
+          <h3 className="h4">Diplomă de participare</h3>
+          <p>{course.diploma}</p>
+        </div>
+      ) : null}
     </Section>
   );
 }
