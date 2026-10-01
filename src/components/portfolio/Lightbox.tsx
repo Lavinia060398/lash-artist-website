@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState, type PointerEvent as ReactPointerEvent, type TransitionEvent } from "react";
+import { useCallback, useEffect, useRef, useState, type PointerEvent as ReactPointerEvent, type TransitionEvent, type WheelEvent as ReactWheelEvent } from "react";
 import type { PortfolioPhoto } from "@/data/portfolio";
 
 type Props = {
@@ -58,6 +58,9 @@ export function Lightbox({ photos, index, onIndexChange, onClose }: Props) {
   const [dx, setDx] = useState(0);
   const gesture = useRef<{ id: number; x: number; y: number; t: number; axis: "x" | "y" | null } | null>(null);
   const pendingDir = useRef<0 | 1 | -1>(0);
+  /** A step requested while a slide is still animating (fast taps / keys / wheel) — run right after it. */
+  const queuedDir = useRef(0); // pending steps, e.g. +2 = two more to the right
+  const wheelLock = useRef(0);
   const count = photos.length;
   const open = index !== null;
 
@@ -79,7 +82,11 @@ export function Lightbox({ photos, index, onIndexChange, onClose }: Props) {
   /** Start the slide animation towards the previous (-1) or next (+1) photo. */
   const go = useCallback(
     (dir: 1 | -1) => {
-      if (index === null || phase === "slide") return;
+      if (index === null) return;
+      if (phase === "slide") {
+        queuedDir.current = Math.max(-5, Math.min(5, queuedDir.current + dir));
+        return;
+      }
       if (reducedMotion()) {
         onIndexChange(wrap(index + dir));
         setDx(0);
@@ -125,9 +132,23 @@ export function Lightbox({ photos, index, onIndexChange, onClose }: Props) {
 
   useEffect(() => {
     if (phase !== "reset") return;
-    const id = requestAnimationFrame(() => requestAnimationFrame(() => setPhase("idle")));
-    return () => cancelAnimationFrame(id);
+    let inner = 0;
+    const id = requestAnimationFrame(() => {
+      inner = requestAnimationFrame(() => setPhase("idle"));
+    });
+    return () => {
+      cancelAnimationFrame(id);
+      cancelAnimationFrame(inner);
+    };
   }, [phase]);
+
+  // Run a step that was requested during the previous slide.
+  useEffect(() => {
+    if (phase !== "idle" || queuedDir.current === 0) return;
+    const dir = queuedDir.current > 0 ? 1 : -1;
+    queuedDir.current -= dir;
+    go(dir);
+  }, [phase, go]);
 
   // Keyboard ← → (Esc is handled by the dialog's cancel event).
   useEffect(() => {
@@ -147,7 +168,9 @@ export function Lightbox({ photos, index, onIndexChange, onClose }: Props) {
 
   // ---- Touch / mouse drag ----
   const onPointerDown = (e: ReactPointerEvent) => {
-    if (phase === "slide" || (e.pointerType === "mouse" && e.button !== 0)) return;
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    if (phase === "slide") completeSlide(); // a new swipe never gets ignored: finish the running one at once
+    queuedDir.current = 0;
     gesture.current = { id: e.pointerId, x: e.clientX, y: e.clientY, t: performance.now(), axis: null };
   };
 
@@ -158,9 +181,13 @@ export function Lightbox({ photos, index, onIndexChange, onClose }: Props) {
     const my = e.clientY - g.y;
     if (g.axis === null) {
       if (Math.abs(mx) < 8 && Math.abs(my) < 8) return;
-      g.axis = Math.abs(mx) > Math.abs(my) ? "x" : "y";
+      g.axis = Math.abs(mx) >= Math.abs(my) * 0.6 ? "x" : "y";
       if (g.axis === "x") {
-        (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+        try {
+          (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+        } catch {
+          /* pointer already released */
+        }
         setPhase("drag");
       }
     }
@@ -181,6 +208,19 @@ export function Lightbox({ photos, index, onIndexChange, onClose }: Props) {
       setPhase(mx === 0 ? "idle" : "snap");
       setDx(0);
     }
+  };
+
+  // Trackpad / mouse wheel: one step per gesture (horizontal swipe or vertical scroll).
+  const onWheel = (e: ReactWheelEvent) => {
+    const d = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+    if (Math.abs(d) < 12) return;
+    const now = performance.now();
+    if (now - wheelLock.current < 450) {
+      wheelLock.current = now; // keep the lock while the same gesture is still sending events
+      return;
+    }
+    wheelLock.current = now;
+    go(d > 0 ? 1 : -1);
   };
 
   if (!open) return <dialog ref={dialogRef} className="lightbox" aria-hidden />;
@@ -217,11 +257,15 @@ export function Lightbox({ photos, index, onIndexChange, onClose }: Props) {
         </header>
 
         <div
-          className="relative min-h-0 flex-1 touch-pan-y select-none overflow-hidden"
+          className="relative min-h-0 flex-1 touch-none select-none overflow-hidden"
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
           onPointerUp={(e) => finishGesture(e)}
           onPointerCancel={(e) => finishGesture(e, true)}
+          onLostPointerCapture={(e) => {
+            if (gesture.current?.id === e.pointerId) finishGesture(e);
+          }}
+          onWheel={onWheel}
         >
           <div
             ref={trackRef}
