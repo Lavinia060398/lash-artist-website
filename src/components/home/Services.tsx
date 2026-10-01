@@ -20,7 +20,7 @@ export function Services() {
             className="service-item border-b border-line pb-[10px] pt-[10px] md:px-[18px] md:py-5"
           >
             <h3
-              className={`[grid-area:name] ${service.variants ? "md:pr-[8.5px]" : "md:[grid-column:2/4] md:pr-0"} font-sans pr-7 text-[18px] font-medium leading-[1.3] tracking-[-0.01em] text-ink md:self-center md:text-[22px] md:font-semibold md:uppercase`}
+              className={`[grid-area:name] ${service.variants ? "md:pr-[8.5px]" : "md:[grid-column:2/4] md:pr-0"} font-sans pr-7 text-[18px] font-medium leading-[1.3] tracking-[-0.01em] text-ink md:self-center md:text-[22px] md:font-semibold`}
             >
               {service.name}
             </h3>
@@ -28,7 +28,7 @@ export function Services() {
               {service.price} lei
             </p>
             {service.variants ? (
-              <p className="[grid-area:var] mt-1 font-sans text-[16px] font-normal leading-[1.5] tracking-[-0.01em] text-body md:mt-0 md:text-[18px] md:leading-[1.3] md:self-center md:pl-[8.5px] md:font-medium md:uppercase">
+              <p className="[grid-area:var] mt-1 font-sans text-[16px] font-normal leading-[1.5] tracking-[-0.01em] text-body md:mt-0 md:text-[18px] md:leading-[1.3] md:self-center md:pl-[8.5px] md:font-medium">
                 {service.variants}
               </p>
             ) : null}
@@ -59,7 +59,7 @@ export function Services() {
 
       <div className="mt-[25px] flex flex-col items-center gap-5 md:mt-10 md:gap-[30px]">
         <div className="flex flex-col items-center gap-[10px] md:gap-[15px]">
-          <h3 className="text-center font-sans text-[22px] font-semibold leading-[1.3] md:uppercase tracking-[-0.01em] text-ink">
+          <h3 className="text-center font-sans text-[22px] font-semibold leading-[1.3] tracking-[-0.01em] text-ink">
             Inclus în preț
           </h3>
           <ul className="flex flex-col items-center gap-[3px] text-center">

@@ -23,15 +23,15 @@ export function Aftercare() {
 
         <div className="flex w-full flex-col gap-[15px] lg:w-[570px] lg:gap-[30px]">
           <div className="flex flex-col gap-5">
-            <h3 className="h3 text-body-dark">REGULI DE BAZĂ PENTRU GENE EXTINSE</h3>
+            <h3 className="h3 text-body-dark">Reguli de bază pentru gene extinse</h3>
             <BulletList items={aftercareRules} tone="dark" className="!gap-[2px]" />
           </div>
 
           <div className="flex flex-col gap-5">
-            <h3 className="h3 text-body-dark">IGIENA GENELOR EXTINSE</h3>
+            <h3 className="h3 text-body-dark">Igiena genelor extinse</h3>
             <BulletList items={aftercareHygiene} tone="dark" className="!gap-[2px]" />
             <div role="note" className="flex flex-col gap-[5px] border border-line p-3">
-              <p className="h3 !text-alert">ATENȚIE !</p>
+              <p className="h3 !text-alert">Atenție!</p>
               <p className="text-ink">{aftercareWarning}</p>
             </div>
           </div>

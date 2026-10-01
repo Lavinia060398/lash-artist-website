@@ -35,7 +35,7 @@ export function TimePolicy() {
           >
             <Icon name={item.icon} size={52} className="text-body-dark" />
             <div className="flex flex-col gap-[10px] md:gap-[15px]">
-              <h3 className="h3 uppercase">{item.title}</h3>
+              <h3 className="h3">{item.title}</h3>
               <p className="text-body-dark">
                 {item.text.split("|").map((line, j) => (
                   <Fragment key={j}>

@@ -3,7 +3,7 @@ export const aftercareRules = [
   "Evitați produsele pe bază de ulei (demachiante, ulei, cremă);",
   "Nu dormiți cu fața în pernă;",
   "Nu utilizați instrumente pentru ondularea genelor și nu machiați genele;",
-  "NU frecați ochii și NU trageți de gene;",
+  "Nu frecați ochii și nu trageți de gene;",
   "E strict interzis de a scoate genele, această procedură se face de către meșter cu pregătire corespunzătoare.",
 ];
 
